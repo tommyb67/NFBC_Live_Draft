@@ -1,3 +1,27 @@
+<h1>Hitters</h1>
+
+<p>
+  Download:
+  <%= link_to "CSV", hitters_path(format: "csv") %> |
+  <%= link_to "Excel", hitters_path(format: "xls") %>
+</p>
+
+<table id="hitters">
+  <tr>
+    <th>Name</th>
+    <th>Pos1</th>
+    <th>AB</th>
+  </tr>
+<% @hitters.each do |hitter| %>
+  <tr>
+    <td><%= hitter.name %></td>
+    <td><%= hitter.pos1 %></td>
+    <td><%= hitter.ab %></td>
+  </tr>
+<% end %>
+</table>
+
+
 <h1>Import Hitters</h1>
   <%= form_tag import_hitters_path, multipart: true do %>
     <%= file_field_tag :file %>
