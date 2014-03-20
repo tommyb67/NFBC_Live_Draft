@@ -8,15 +8,37 @@
 
 <table id="hitters">
   <tr>
+    <th>player_id</th>
     <th>Name</th>
     <th>Pos1</th>
+    <th>Pos2</th>
+    <th>Pos3</th>
     <th>AB</th>
+    <th>Run</th>
+    <th>Hit</th>
+    <th>HR</th>
+    <th>RBI</th>
+    <th>SB</th>
+    <th>Avg</th>
+    <th>Zola_mix12</th>
+    <th>Zola_rank</th>
   </tr>
 <% @hitters.each do |hitter| %>
   <tr>
+    <td><%= hitter.player_id %></td>
     <td><%= hitter.name %></td>
     <td><%= hitter.pos1 %></td>
+    <td><%= hitter.pos2 %></td>
+    <td><%= hitter.pos3 %></td>
     <td><%= hitter.ab %></td>
+    <td><%= hitter.run %></td>
+    <td><%= hitter.hit %></td>
+    <td><%= hitter.hr %></td>
+    <td><%= hitter.rbi %></td>
+    <td><%= hitter.sb %></td>
+    <td><%= hitter.avg %></td>
+    <td><%= hitter.zola_mix12 %></td>
+    <td><%= hitter.zola_rank %></td>
   </tr>
 <% end %>
 </table>

@@ -3,6 +3,11 @@ class HittersController < ApplicationController
 
   def index
     @hitters = Hitter.order(:name)
+    respond_to do |format|
+      format.html
+      format.csv { send_date @hitters.to_csv }
+      format.xls { send_data @hitters.to_csv(col_sep: "\t") }
+    end
   end
 
 
@@ -14,7 +19,7 @@ class HittersController < ApplicationController
   private
 
     def hitter_params
-      params.require(:name, :pos1, :ab, :run, :hit, :hr, :rbi, :sb, :avg).permit(:player_id, :pos2, :pos3, :ab, :zola_mix12, :zola_rank)
+      params.require(:hitter).permit(:player_id, :name, :pos1, :pos2, :pos3, :ab, :run, :hit, :hr, :rbi, :sb, :zola_mix12, :zola_rank)
     end
 
 end
